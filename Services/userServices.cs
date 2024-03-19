@@ -55,8 +55,12 @@ public class userServices : IUser
             throw;
         }
     }
+    
+    task getTaskById(int userId, int taskId){
+        return users.find(u=>u.Id==userId).tasksList.find(t=>t.Id==taskId);
+    }
 
-    public List<task> GetById(int id)
+    public List<task> GetTasksById(int id)
     {
         try
         {

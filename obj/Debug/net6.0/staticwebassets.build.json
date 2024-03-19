@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YEca/FgOF7AP/iL5Ct/VBnn80gr92yKhYBTcpmsVr1E=",
+  "Hash": "RdY45i77piVvZzM4pAJ9r/CkItF4Yf0Xyr7NeLG5Chk=",
   "Source": "todoList",
   "BasePath": "_content/todoList",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "todoList\\wwwroot",
       "Source": "todoList",
-      "ContentRoot": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\commit_three\\Tasks\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\huser\\Downloads\\New folder\\Tasks\\wwwroot\\",
       "BasePath": "_content/todoList",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\commit_three\\Tasks\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\huser\\Downloads\\New folder\\Tasks\\wwwroot\\css\\site.css",
       "SourceId": "todoList",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\commit_three\\Tasks\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\huser\\Downloads\\New folder\\Tasks\\wwwroot\\",
       "BasePath": "_content/todoList",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\commit_three\\Tasks\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\huser\\Downloads\\New folder\\Tasks\\wwwroot\\index.html",
       "SourceId": "todoList",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\commit_three\\Tasks\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\huser\\Downloads\\New folder\\Tasks\\wwwroot\\",
       "BasePath": "_content/todoList",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\commit_three\\Tasks\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\huser\\Downloads\\New folder\\Tasks\\wwwroot\\js\\site.js",
       "SourceId": "todoList",
       "SourceType": "Discovered",
-      "ContentRoot": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\commit_three\\Tasks\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\huser\\Downloads\\New folder\\Tasks\\wwwroot\\",
       "BasePath": "_content/todoList",
       "RelativePath": "js/site.js",
       "AssetKind": "All",

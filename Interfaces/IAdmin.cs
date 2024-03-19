@@ -10,7 +10,7 @@ public interface IAdmin
     // bool DeleteTask(int id);
     // User GetMyUser();
 
-    public List<User> GetAllUsers();
-    public int AddUser(User user);
-    public bool DeleteUser(int id);
+    List<User> GetAllUsers();
+    int AddUser(User user);
+    bool DeleteUser(int id);
 }
