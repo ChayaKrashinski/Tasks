@@ -21,3 +21,13 @@
 /todo.GET took 0ms. User: unknown
 /todo/1.DELETE took 0ms. User: unknown
 /todo.GET took 0ms. User: unknown
+/index.html.GET took 17ms. User: unknown
+/js/site.js.GET took 3ms. User: unknown
+/css/site.css.GET took 5ms. User: unknown
+/todo.GET took 3ms. User: unknown
+/favicon.ico.GET took 0ms. User: unknown
+/index.html.GET took 13ms. User: unknown
+/js/site.js.GET took 2ms. User: unknown
+/css/site.css.GET took 6ms. User: unknown
+/favicon.ico.GET took 1ms. User: unknown
+/todo.GET took 20ms. User: unknown

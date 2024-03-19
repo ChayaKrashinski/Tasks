@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\B\\קרשינסקי מרים\\zilbeberg\\todoList\\todoList.csproj": {}
+    "Z:\\B\\קרשינסקי מרים\\zilbeberg\\commit_three\\Tasks\\todoList.csproj": {}
   },
   "projects": {
-    "Z:\\B\\קרשינסקי מרים\\zilbeberg\\todoList\\todoList.csproj": {
+    "Z:\\B\\קרשינסקי מרים\\zilbeberg\\commit_three\\Tasks\\todoList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\todoList\\todoList.csproj",
+        "projectUniqueName": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\commit_three\\Tasks\\todoList.csproj",
         "projectName": "todoList",
-        "projectPath": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\todoList\\todoList.csproj",
+        "projectPath": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\commit_three\\Tasks\\todoList.csproj",
         "packagesPath": "C:\\Users\\huser\\.nuget\\packages\\",
-        "outputPath": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\todoList\\obj\\",
+        "outputPath": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\commit_three\\Tasks\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
