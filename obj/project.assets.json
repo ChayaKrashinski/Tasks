@@ -846,11 +846,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\huser\\Downloads\\New folder\\Tasks\\todoList.csproj",
+      "projectUniqueName": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\project\\Tasks\\todoList.csproj",
       "projectName": "todoList",
-      "projectPath": "C:\\Users\\huser\\Downloads\\New folder\\Tasks\\todoList.csproj",
+      "projectPath": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\project\\Tasks\\todoList.csproj",
       "packagesPath": "C:\\Users\\huser\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\huser\\Downloads\\New folder\\Tasks\\obj\\",
+      "outputPath": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\project\\Tasks\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

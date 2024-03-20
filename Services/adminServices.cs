@@ -1,14 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.Json;
-using Microsoft.Extensions.DependencyInjection;
-using todoList.Interfaces;
 using todoList.Models;
-
-// using System.Security.Cryptography.X509Certificates;
-
+using todoList.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Linq;
+using System.IO;
+using System;
+using System.Text.Json;
 namespace todoList.Services;
 
 public class adminServices : IAdmin
@@ -16,7 +14,7 @@ public class adminServices : IAdmin
     List<User> users { get; } = new List<User>();
     private string fileName = "users.json";
 
-    public userServices()
+    public adminServices()
     {
         this.fileName = Path.Combine("Data", "users.json");
 
@@ -36,22 +34,22 @@ public class adminServices : IAdmin
         File.WriteAllText(fileName, JsonSerializer.Serialize(users));
     }
 
-    List<User> GetAllUsers(){
+    public List<User> GetAllUsers(){
         return users;
     }
 
-    int AddUser(User user){
+    public int AddUser(User user){
         user.Id = users.Max(u=>u.Id)+1;
         users.Add(user);
         saveToFile();
         return user.Id;
     }
 
-    bool DeleteUser(int id){
+    public bool DeleteUser(int id){
         for (int i = 0; i < users.Count; i++)
             {
                 User user = users[i];
-                if(user.Id == userId)
+                if(user.Id == id)
                 {
                     users.RemoveAt(i);
                     saveToFile();
@@ -61,4 +59,12 @@ public class adminServices : IAdmin
             return false;
     }
 
+}
+
+public static class AdminUtils
+{
+    public static void AddAdmin(this IServiceCollection services)
+    {
+        services.AddSingleton<IAdmin, adminServices>();
+    }
 }

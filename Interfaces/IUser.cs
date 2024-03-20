@@ -10,4 +10,5 @@ public interface IUser
     bool UpdateTask(int id, task updetedTask);
     bool DeleteTask(int userId, int taskId);
     User GetMyUser(int id);
+    User findMe(string password);
 }

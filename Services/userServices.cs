@@ -16,6 +16,16 @@ public class userServices : IUser
     List<User> users { get; } = new List<User>();
     private string fileName = "users.json";
 
+    public User findMe(string password)
+    {
+        foreach (var user in users)
+            {
+                if(user.Password.Equals(password))
+                    return user;
+            }
+        return null;
+    }
+
     public userServices()
     {
         this.fileName = Path.Combine("Data", "users.json");
@@ -56,8 +66,21 @@ public class userServices : IUser
         }
     }
     
-    task getTaskById(int userId, int taskId){
-        return users.find(u=>u.Id==userId).tasksList.find(t=>t.Id==taskId);
+    public task getTaskById(int userId, int taskId){
+        task currentTask = null;
+        foreach (var user in users)
+        {
+            if (user.Id == userId)
+            {
+                foreach (task t in user.tasksList)
+                {
+                    if(t.Id==taskId){
+                        currentTask = t;
+                    }
+                }
+            }
+        }
+        return currentTask;
     }
 
     public List<task> GetTasksById(int id)
@@ -172,5 +195,13 @@ public class userServices : IUser
             
             throw;
         }
+    }
+}
+
+public static class UserUtils
+{
+    public static void AddUser(this IServiceCollection services)
+    {
+        services.AddSingleton<IUser, userServices>();
     }
 }

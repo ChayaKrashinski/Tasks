@@ -5,31 +5,42 @@ using todoList.Models;
 using todoList.Interfaces;
 using System;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+using todoList.Services;
+using todoList.Models;
+using System.Security.Claims;
 
 namespace todoList.Controllers;
 
 [ApiController]
-[Route("todo")]
-[Authorize(Policy = "User")]
+[Route("todo/user")]
 public class userController : ControllerBase
 {
-    IUser Iuser;
-    public userController(IUser user)
+    IUser IUser;
+    public userController(IUser Iuser)
     {
-        this.Iuser = user;
-    } 
-
-    [HttpGet("{id}")]
-
-
-    [HttpGet]
-    [Route("[action]")]
-    public ActionResult<String> AccessPublicFiles()
-    {
-        return new OkObjectResult("---");
-        // $"Public Files Accessed by {userName}"
+        this.IUser = Iuser;
     }
+
+
+
+    // [HttpGet("{id}")]
+    // [Route("[action]")]
+    // [Authorize(Policy = "User")]
+    // public ActionResult<User> getUserById()
+    // {   if(user==null)
+    //     return IUser.GetMyUser(user.Id);
+    //     return null;
+    // }
+
+
+    // [Authorize(Policy = "User")]
+    // [HttpGet]
+    // [Route("[action]")]
+    // public ActionResult<String> AccessPublicFiles()
+    // {
+    //     return new OkObjectResult("---");
+    //     // $"Public Files Accessed by {userName}"
+    // }
 
 }
 

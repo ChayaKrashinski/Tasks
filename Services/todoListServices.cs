@@ -107,7 +107,3 @@ public static class TaskUtils
         services.AddSingleton<ITaskService, todoListServices>();
     }
 }
-
-
-
-
