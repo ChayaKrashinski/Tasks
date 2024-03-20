@@ -47,7 +47,4 @@ public class loginController : ControllerBase
     
     }
 
-
-// [Authorize(Policy = "Admin")]
-
 }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using todoList.Models;
+using todoList.Controllers;
 using todoList.Interfaces;
 using System;
 using Microsoft.AspNetCore.Authorization;
@@ -21,16 +22,14 @@ public class userController : ControllerBase
         this.IUser = Iuser;
     }
 
-
-
-    // [HttpGet("{id}")]
-    // [Route("[action]")]
-    // [Authorize(Policy = "User")]
-    // public ActionResult<User> getUserById()
-    // {   if(user==null)
-    //     return IUser.GetMyUser(user.Id);
-    //     return null;
-    // }
+    [HttpGet("{id}")]
+    [Route("[action]")]
+    [Authorize(Policy = "User")]
+    public ActionResult<User> getUserById()//here need send from body the user
+    {   if(User==null)
+            return null;
+        return IUser.GetMyUser(User.Id);
+    }
 
 
     // [Authorize(Policy = "User")]
