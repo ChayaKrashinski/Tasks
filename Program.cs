@@ -13,10 +13,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.OpenApi.Models;
 using System.Security.Claims;
 
-void ConfigureServices(IServiceCollection services)
-{
-    // auth1
-    services.AddAuthentication(options =>
+
+
+var builder = WebApplication.CreateBuilder(args);
+
+// var jwtIssuer = builder.Configuration.GetSection("Jwt:Issuer").Get<string>();
+// var jwtKey = builder.Configuration.GetSection("Jwt:Key").Get<string>();
+
+builder.Services.AddAuthentication(options =>
         {
             options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
         }
@@ -26,27 +30,27 @@ void ConfigureServices(IServiceCollection services)
             cfg.TokenValidationParameters = TokenServise.GetTokenValidationParameters();
         }
     );
-    //auth2
-    services.AddAuthorization(cfg =>
-        {
-            cfg.AddPolicy("Admin", policy => policy.RequireClaim("type", "Admin"));
-            cfg.AddPolicy("User", policy => policy.RequireClaim("type", "User"));
-        });
-
-    services.AddControllers();
-    services.AddSwaggerGen(c =>
+//auth2
+builder.Services.AddAuthorization(cfg =>
     {
-        c.SwaggerDoc("v1", new OpenApiInfo { Title = "TasksList", Version = "v1" });
-        //auth3
-        c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-        {
-            In = ParameterLocation.Header,
-            Description = "Please enter JWT with Bearer into field",
-            Name = "Authorization",
-            Type = SecuritySchemeType.ApiKey
-        });
-        //auth4
-        c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+        cfg.AddPolicy("Admin", policy => policy.RequireClaim("type", "Admin"));
+        cfg.AddPolicy("User", policy => policy.RequireClaim("type", "User"));
+    });
+
+builder.Services.AddControllers();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "TasksList", Version = "v1" });
+    //auth3
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Please enter JWT with Bearer into field",
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey
+    });
+    //auth4
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement {
                 { new OpenApiSecurityScheme
                         {
                          Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer"}
@@ -55,12 +59,28 @@ void ConfigureServices(IServiceCollection services)
 
                     }
                 }
-        });
     });
-}
+});
 
 
-var builder = WebApplication.CreateBuilder(args);
+
+
+// builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//  .AddJwtBearer(options =>
+//  {
+//      options.TokenValidationParameters = new TokenValidationParameters
+//      {
+
+//          ValidateIssuer = true,
+//          ValidateAudience = true,
+//          ValidateLifetime = true,
+//          ValidateIssuerSigningKey = true,
+//          ValidIssuer = jwtIssuer,
+//          ValidAudience = jwtIssuer,
+//          IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+//      };
+//  });
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

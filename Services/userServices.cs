@@ -48,22 +48,15 @@ public class userServices : IUser
 
     public List<task> GetAllTasks()
     {
-        try
+        List<task> lt = new List<task>();
+        foreach (var user in users)
         {
-            List<task> lt = new List<task>();
-            foreach (var user in users)
+            foreach (var task in user.TasksList)
             {
-                foreach (var task in user.tasksList)
-                {
-                    lt.Add(task);
-                }
+                lt.Add(task);
             }
-            return lt;
         }
-        catch (System.Exception)
-        {
-            throw;
-        }
+        return lt;
     }
     
     public task getTaskById(int userId, int taskId){
@@ -72,7 +65,7 @@ public class userServices : IUser
         {
             if (user.Id == userId)
             {
-                foreach (task t in user.tasksList)
+                foreach (task t in user.TasksList)
                 {
                     if(t.Id==taskId){
                         currentTask = t;
@@ -91,7 +84,7 @@ public class userServices : IUser
             foreach (User user in users)
             {
                 if (user.Id == id)
-                    foreach (task task in user.tasksList)
+                    foreach (task task in user.TasksList)
                     {
                         lt.Add(task);
                     }
@@ -112,8 +105,8 @@ public class userServices : IUser
             {
                 if (user.Id == id)
                 {
-                    newTask.Id = user.tasksList.Max(t => t.Id) + 1;
-                    user.tasksList.Add(newTask);
+                    newTask.Id = user.TasksList.Max(t => t.Id) + 1;
+                    user.TasksList.Add(newTask);
                     saveToFile();
                     return newTask.Id;
                 }
@@ -134,7 +127,7 @@ public class userServices : IUser
             {
                 if (user.Id == id)
                 {
-                    foreach (task t in user.tasksList)
+                    foreach (task t in user.TasksList)
                     {
                         if(t.Id==updetedTask.Id){
                             t.Name = updetedTask.Name;
@@ -162,7 +155,7 @@ public class userServices : IUser
                 User user = users[i];
                 if(user.Id == userId)
                 {
-                    List<task> tasks = user.tasksList;
+                    List<task> tasks = user.TasksList;
                     for (int k = 0; k < tasks.Count; k++)
                     {
                         if(tasks[k].Id==taskId)

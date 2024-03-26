@@ -10,6 +10,7 @@ using todoList.Services;
 using todoList.Models;
 using System.Security.Claims;
 
+
 namespace todoList.Controllers;
 
 [ApiController]
@@ -22,14 +23,15 @@ public class userController : ControllerBase
         this.IUser = Iuser;
     }
 
-    [HttpGet("{id}")]
-    [Route("[action]")]
-    [Authorize(Policy = "User")]
-    public ActionResult<User> getUserById()//here need send from body the user
-    {   if(User==null)
-            return null;
-        return IUser.GetMyUser(User.Id);
-    }
+    // [HttpGet("{id}")]
+    // [Route("[action]")]
+    // [Authorize(Policy = "User")]
+    // public ActionResult<User> getUserById(User user)//here need send from body the user
+    // {   
+    //     if(user==null)
+    //         return null;
+    //     return IUser.GetMyUser(user.Id);
+    // }
 
 
     // [Authorize(Policy = "User")]

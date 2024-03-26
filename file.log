@@ -1,28 +1,36 @@
-/index.html.GET took 11ms. User: unknown
-/css/site.css.GET took 1ms. User: unknown
-/todo/admin/Login.POST took 106ms. User: unknown
-/swagger/index.html/swagger.GET took 3ms. User: unknown
-/swagger/index.html/swagger.GET took 1ms. User: unknown
-/index.html.GET took 10ms. User: unknown
-/css/site.css.GET took 1ms. User: unknown
-/js/site.js.GET took 6ms. User: unknown
-/favicon.ico.GET took 1ms. User: unknown
-/todo.GET took 23ms. User: unknown
-/index.html.GET took 8ms. User: unknown
-/js/site.js.GET took 3ms. User: unknown
-/todo.GET took 1ms. User: unknown
-/favicon.ico.GET took 4ms. User: unknown
-/todo.GET took 19ms. User: unknown
-/todo.POST took 44ms. User: unknown
-/todo.GET took 0ms. User: unknown
-/todo/4.PUT took 13ms. User: unknown
-/todo.GET took 0ms. User: unknown
-/todo/admin/Login.POST took 149ms. User: unknown
-/todo/1.GET took 28ms. User: unknown
-/todo/admin/Login.POST took 136ms. User: unknown
-/todo/login/Login.POST took 144ms. User: unknown
-/todo/login/Login.POST took 105ms. User: unknown
-/todo/login/Login.POST took 36ms. User: unknown
-/todo/login/Login.POST took 107ms. User: unknown
-/todo/Login.POST took 105ms. User: unknown
-/todo/Login.POST took 140ms. User: unknown
+26/03/2024 20:32:10 --- /todo/GetById.GET took 0ms. User: 1
+26/03/2024 20:33:02 --- /todo/GetById.GET took 2ms. User: 1
+26/03/2024 20:33:13 --- /todo/Login.POST took 1ms. User: 1
+26/03/2024 20:33:55 --- /todo/GetById.GET took 0ms. User: 1
+26/03/2024 20:50:04 --- /todo/Login.POST took 0ms. User: 2
+26/03/2024 20:50:20 --- /todo/GetById.GET took 0ms. User: 1
+26/03/2024 20:51:23 --- /todo/Login.POST took 161ms. User: 1
+26/03/2024 20:51:53 --- /todo/GetById.GET took 42ms. User: 1
+26/03/2024 20:52:39 --- /todo/GetById.GET took 2ms. User: 1
+26/03/2024 20:59:52 --- /todo/Login.POST took 169ms. User: 1
+26/03/2024 21:00:13 --- /todo/GetById.GET took 44ms. User: 1
+26/03/2024 21:02:20 --- /todo/GetById.GET took 2ms. User: 1
+26/03/2024 21:17:51 --- /todo/Get.GET took 61ms. User: 1
+26/03/2024 21:18:05 --- /todo/Login.POST took 119ms. User: 1
+26/03/2024 21:18:22 --- /todo/Get.GET took 39ms. User: 1
+26/03/2024 21:18:51 --- /todo/Get.GET took 257ms. User: 1
+26/03/2024 21:18:53 --- /todo/Get.GET took 2ms. User: 1
+26/03/2024 21:18:58 --- /todo/Get.GET took 3ms. User: 1
+26/03/2024 21:19:05 --- /todo/Login.POST took 36ms. User: 1
+26/03/2024 21:19:25 --- /todo/Get.GET took 0ms. User: 1
+26/03/2024 21:20:21 --- /todo/Login.POST took 159ms. User: 1
+26/03/2024 21:20:36 --- /todo/Get.GET took 42ms. User: 1
+26/03/2024 21:21:16 --- /todo/Get.GET took 1ms. User: 1
+26/03/2024 21:22:07 --- /todo/Login.POST took 165ms. User: 1
+26/03/2024 21:22:23 --- /todo/Get.GET took 43ms. User: 1
+26/03/2024 21:23:34 --- /todo/Get.GET took 68ms. User: 1
+26/03/2024 21:24:05 --- /todo/Get.GET took 55ms. User: 1
+26/03/2024 21:24:17 --- /todo/Login.POST took 112ms. User: 1
+26/03/2024 21:24:31 --- /todo/Get.GET took 40ms. User: 1
+26/03/2024 21:24:34 --- /todo/Get.GET took 0ms. User: 1
+26/03/2024 21:38:57 --- /todo/Login.POST took 167ms. User: unknown
+26/03/2024 21:39:21 --- /todo/Get.GET took 42ms. User: 1
+26/03/2024 21:45:43 --- /todo/Login.POST took 165ms. User: unknown
+26/03/2024 21:45:59 --- /todo/Get.GET took 42ms. User: 1
+26/03/2024 21:46:48 --- /todo/Login.POST took 174ms. User: unknown
+26/03/2024 21:47:04 --- /todo/Get.GET took 44ms. User: 2

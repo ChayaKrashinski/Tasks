@@ -9,6 +9,7 @@ using todoList.Services;
 using todoList.Models;
 using System.Security.Claims;
 
+
 namespace todoList.Controllers;
 
 [ApiController]
@@ -16,7 +17,8 @@ namespace todoList.Controllers;
 public class loginController : ControllerBase
 {
     IUser IUser;
-    public User User;
+    public User User = null;
+    
     public loginController(IUser IUser)
     {
         this.IUser = IUser;
@@ -24,7 +26,7 @@ public class loginController : ControllerBase
 
     [HttpPost]
     [Route("[action]")]
-    public ActionResult<String> Login([FromBody] string Password)
+    public ActionResult<String> Login(string Password, string name)
     {
         if (IUser.findMe(Password)==null)
         {
@@ -33,18 +35,24 @@ public class loginController : ControllerBase
 
         User = IUser.findMe(Password);
 
-        var claims = User.IsAdmin?new List<Claim>
-            {
-                new Claim("type", "Admin"),
-            }:new List<Claim>
-            {
-                new Claim("type", "User"),
-            };
+        var claims=new List<Claim>{new Claim ("id", User.Id.ToString())};
+        if(User.IsAdmin)
+            claims.Add(new Claim("type", "Admin"));
+        else
+            claims.Add(new Claim("type", "User"));
 
         var token = TokenServise.GetToken(claims);
 
         return new OkObjectResult(TokenServise.WriteToken(token));
     
+    }
+
+    [HttpGet]
+    [Route("[action]")]
+    [Authorize(Policy="User")]
+    public ActionResult<List<task>> Get()
+    {
+        return IUser.GetAllTasks();
     }
 
 }

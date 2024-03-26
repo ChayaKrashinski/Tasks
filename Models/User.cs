@@ -9,5 +9,5 @@ public class User
     public bool IsAdmin{get; set;}
     public int Id{get; set;}
     public string UserName{get; set;}
-    public List<task> tasksList{get; set;}
+    public List<task> TasksList{get; set;}
 }
