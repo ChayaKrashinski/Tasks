@@ -59,7 +59,7 @@ public class todoController : ControllerBase
     [HttpPut]
     [Authorize]
     [Route("[action]/{id}")]
-    public ActionResult<bool> UpdateTask([FromBody] int id, [FromBody] task newTask)
+    public ActionResult<bool> UpdateTask(int id,[FromBody] task newTask)
     {
         return IUser.UpdateTask(UserId, id, newTask);
     }

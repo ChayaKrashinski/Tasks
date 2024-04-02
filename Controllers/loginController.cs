@@ -24,14 +24,15 @@ public class loginController : ControllerBase
 
     [HttpPost]
     [Route("[action]")]
-    public ActionResult<String> Login([FromBody] String Password, [FromBody] String name)
+    public ActionResult<String> Login([FromBody] User User)
     {
-        if (IUser.findMe(Password, name) == null)
+        string Password = User.Password;
+        string UserName = User.UserName;
+
+        if (IUser.findMe(Password, UserName) == null)
         {
             return BadRequest();
         }
-
-        User User = IUser.findMe(Password, name);
 
         var claims = new List<Claim> { new Claim("id", User.Id.ToString()) };
         if (User.IsAdmin)
