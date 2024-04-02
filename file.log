@@ -83,3 +83,7 @@
 01/04/2024 14:47:01 --- /todo/Login.POST took 511ms. User: unknown
 01/04/2024 14:49:28 --- /todo/Login.POST took 475ms. User: unknown
 01/04/2024 14:49:45 --- /todo/user/GetUser.GET took 82ms. User: 1
+02/04/2024 17:55:18 --- /todo/Login.POST took 355ms. User: unknown
+02/04/2024 17:55:49 --- /todo/user.GET took 5ms. User: unknown
+02/04/2024 17:56:05 --- /todo/user.GET took 49ms. User: 1
+02/04/2024 18:10:35 --- /tasksList/1.GET took 56ms. User: unknown

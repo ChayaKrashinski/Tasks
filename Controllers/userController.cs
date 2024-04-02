@@ -13,13 +13,12 @@ using todoList.Interfaces;
 namespace todoList.Controllers;
 
 [ApiController]
-[Route("todo/user")]
+[Route("[controller]")]
 public class userController : ControllerBase
 {
-    IUser IUser;
-    // public int id{get; set;}
-
+    public IUser IUser;
     public int UserId{get;set;}
+
     public userController(IUser usersService,IHttpContextAccessor httpContextAccessor)
     {
         this.IUser = usersService;
@@ -28,8 +27,7 @@ public class userController : ControllerBase
     
 
     [HttpGet]
-    [Route("[action]")]
-    [Authorize/*(Policy = "User")*/]
+    [Authorize]
     public ActionResult<User> GetUser()//here need send from body the user
     {   
         return IUser.GetMyUser(UserId);
