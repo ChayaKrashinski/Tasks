@@ -124,17 +124,17 @@ public class userServices : IUser
         }
     }
 
-    public bool UpdateTask(int id, task updetedTask)
+    public bool UpdateTask(int userId, int taskId, task updetedTask)
     {
         try
         {
             foreach (var user in users)
             {
-                if (user.Id == id)
+                if (user.Id == userId)
                 {
                     foreach (task t in user.TasksList)
                     {
-                        if(t.Id==updetedTask.Id){
+                        if(t.Id==taskId){
                             t.Name = updetedTask.Name;
                             t.IsDone = updetedTask.IsDone;
                             saveToFile();

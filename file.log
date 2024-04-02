@@ -87,3 +87,11 @@
 02/04/2024 17:55:49 --- /todo/user.GET took 5ms. User: unknown
 02/04/2024 17:56:05 --- /todo/user.GET took 49ms. User: 1
 02/04/2024 18:10:35 --- /tasksList/1.GET took 56ms. User: unknown
+02/04/2024 18:21:26 --- /5.GET took 60ms. User: unknown
+02/04/2024 18:22:10 --- /todo.GET took 8ms. User: unknown
+02/04/2024 18:35:42 --- /todo/Login.POST took 160ms. User: unknown
+02/04/2024 18:36:19 --- /todo.POST took 55ms. User: 1
+02/04/2024 18:37:52 --- /todo/1.PUT took 15ms. User: 1
+02/04/2024 18:38:23 --- /todo.GET took 3ms. User: 1
+02/04/2024 18:38:34 --- /todo/tasksList/2.GET took 3ms. User: 1
+02/04/2024 18:38:39 --- /todo/tasksList.GET took 1ms. User: 1
