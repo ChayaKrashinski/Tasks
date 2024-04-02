@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3oQd/apKGoRhymO2I8ff7FUEfMryL8muYe4cursXwOg=",
+  "Hash": "3MbyxTxpwXT8gatfbRp69vFSmoiM2IBE5HSwuv/EDgo=",
   "Source": "todoList",
   "BasePath": "_content/todoList",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
+      "Identity": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\project\\Tasks\\wwwroot\\js\\login.js",
+      "SourceId": "todoList",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\project\\Tasks\\wwwroot\\",
+      "BasePath": "_content/todoList",
+      "RelativePath": "js/login.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\login.js"
+    },
+    {
       "Identity": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\project\\Tasks\\wwwroot\\js\\site.js",
       "SourceId": "todoList",
       "SourceType": "Discovered",
@@ -66,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\project\\Tasks\\wwwroot\\site.html",
+      "SourceId": "todoList",
+      "SourceType": "Discovered",
+      "ContentRoot": "Z:\\B\\קרשינסקי מרים\\zilbeberg\\project\\Tasks\\wwwroot\\",
+      "BasePath": "_content/todoList",
+      "RelativePath": "site.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\site.html"
     }
   ]
 }
