@@ -47,7 +47,7 @@ public class userController : ControllerBase
     [HttpPost]
     [Authorize(Policy = "Admin")]
     [Route("[action]")]
-    public ActionResult<int> AddUser(User newUser)
+    public ActionResult<int> AddUser([FromBody] User newUser)
     {
         return IAdmin.AddUser(newUser);
     }

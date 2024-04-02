@@ -24,7 +24,7 @@ public class loginController : ControllerBase
 
     [HttpPost]
     [Route("[action]")]
-    public ActionResult<String> Login(String Password, String name)
+    public ActionResult<String> Login([FromBody] String Password, [FromBody] String name)
     {
         if (IUser.findMe(Password, name) == null)
         {

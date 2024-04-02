@@ -36,7 +36,7 @@ public class todoController : ControllerBase
     [HttpGet]
     [Authorize(Policy = "Admin")]
     [Route("tasksList/{id}")]
-    public ActionResult<List<task>> GetMyTasksList(int id)
+    public ActionResult<List<task>> GetUserTasksList(int id)
     {
         return IUser.GetTasksById(id);
     }
@@ -51,7 +51,7 @@ public class todoController : ControllerBase
     [HttpPost]
     [Authorize]
     [Route("[action]")]
-    public ActionResult<int> AddNewTask(task newTask)
+    public ActionResult<int> AddNewTask([FromBody] task newTask)
     {
         return IUser.AddTask(UserId, newTask);
     }
@@ -59,7 +59,7 @@ public class todoController : ControllerBase
     [HttpPut]
     [Authorize]
     [Route("[action]/{id}")]
-    public ActionResult<bool> UpdateTask(int id, task newTask)
+    public ActionResult<bool> UpdateTask([FromBody] int id, [FromBody] task newTask)
     {
         return IUser.UpdateTask(UserId, id, newTask);
     }
