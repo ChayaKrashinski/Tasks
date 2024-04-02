@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using todoList.Services;
 using System.Text.Json;
 using Microsoft.Extensions.DependencyInjection;
 using todoList.Interfaces;
@@ -13,33 +14,37 @@ namespace todoList.Services;
 
 public class userServices : IUser
 {
-    List<User> users { get; } = new List<User>();
+    public List<User> users { get; } = new List<User>();
     private string fileName = "users.json";
 
-    public User findMe(string password)
+    public User findMe(string password, string name)
     {
         foreach (var user in users)
             {
                 if(user.Password.Equals(password))
-                    return user;
+                    if(user.UserName.Equals(name))
+                        return user;
             }
         return null;
     }
 
-    public userServices()
+    // todoListServices tasksListService;
+    public userServices(/*ITasksListService tasksListService*/)
     {
-        this.fileName = Path.Combine("Data", "users.json");
-
+        // this.tasksListService = tasksListService;
+        this.fileName = Path.Combine( "Data", "users.json");
         using (var jsonFile = File.OpenText(fileName))
         {
-            // #pragma warning disable CS8601 // Possible null reference assignment.
-            users = JsonSerializer.Deserialize<List<User>>(
-                jsonFile.ReadToEnd(),
-                new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
-            );
-            // #pragma warning restore CS8601 // Possible null reference assignment.
+            users = JsonSerializer.Deserialize<List<User>>(jsonFile.ReadToEnd(),
+            new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+
+        
         }
     }
+
 
     private void saveToFile()
     {
@@ -198,3 +203,8 @@ public static class UserUtils
         services.AddSingleton<IUser, userServices>();
     }
 }
+
+// public LoginController(IUsersService usersService, IHttpContextAccessor httpContextAccessor)
+//     {
+//         this.usersService = usersService;
+//     }

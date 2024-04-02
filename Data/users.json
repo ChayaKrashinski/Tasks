@@ -1,23 +1,28 @@
-[{
+[
+    {
         "Id": 1,
         "Password": "1",
         "IsAdmin": true,
         "UserName": "Dan",
-        "TasksList": [{
-            "Id": 1,
-            "Name": "\u05DE\u05D1\u05D7\u05DF \u05D1\u05EA\u05D5\u05E8\u05D4",
-            "IsDone": false
-        }]
+        "TasksList": [
+            {
+                "Id": 1,
+                "Name": "\u05DE\u05D1\u05D7\u05DF \u05D1\u05EA\u05D5\u05E8\u05D4",
+                "IsDone": false
+            }
+        ]
     },
     {
         "Id": 2,
         "Password": "2",
         "IsAdmin": false,
         "UserName": "Gad",
-        "TasksList": [{
-            "Id": 1,
-            "Name": "\u05DE\u05D1\u05D7\u05DF \u05D1\u05EA\u05D5\u05E8\u05D4",
-            "IsDone": true
-        }]
+        "TasksList": [
+            {
+                "Id": 1,
+                "Name": "\u05DE\u05D1\u05D7\u05DF \u05D1\u05EA\u05D5\u05E8\u05D4",
+                "IsDone": true
+            }
+        ]
     }
 ]

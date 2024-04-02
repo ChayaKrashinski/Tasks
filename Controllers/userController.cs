@@ -3,12 +3,11 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using todoList.Models;
 using todoList.Controllers;
-using todoList.Interfaces;
 using System;
 using Microsoft.AspNetCore.Authorization;
 using todoList.Services;
-using todoList.Models;
 using System.Security.Claims;
+using todoList.Interfaces;
 
 
 namespace todoList.Controllers;
@@ -18,19 +17,49 @@ namespace todoList.Controllers;
 public class userController : ControllerBase
 {
     IUser IUser;
-    public userController(IUser Iuser)
+    // public int id{get; set;}
+
+    public int UserId{get;set;}
+    public userController(IUser usersService,IHttpContextAccessor httpContextAccessor)
     {
-        this.IUser = Iuser;
+        this.IUser = usersService;
+        UserId = int.Parse(httpContextAccessor.HttpContext?.User?.FindFirst("id")?.Value);
+    }
+    
+
+    [HttpGet]
+    [Route("[action]")]
+    [Authorize/*(Policy = "User")*/]
+    public ActionResult<User> GetUser()//here need send from body the user
+    {   
+        return IUser.GetMyUser(UserId);
     }
 
-    // [HttpGet("{id}")]
-    // [Route("[action]")]
+
     // [Authorize(Policy = "User")]
-    // public ActionResult<User> getUserById(User user)//here need send from body the user
+    // [HttpGet]
+    // [Route("[action]")]
+    // public ActionResult<String>                                       ()
+    // {
+    //     return new OkObjectResult("---");
+    //     // $"Public Files Accessed by {userName}"
+    // }
+
+
+    // [HttpGet]
+    // [Route("[action]")]
+    // [Authorize(Policy="User")]
+    // public ActionResult<List<task>> Get()
+    // {
+    //     return IUser.GetAllTasks();
+    // }
+
+    // [HttpGet]
+    // [Route("[action]")]
+    // [Authorize(Policy("Admin"))]
+    // public ActionResult<User> getMyProfile()//here need send from body the user
     // {   
-    //     if(user==null)
-    //         return null;
-    //     return IUser.GetMyUser(user.Id);
+    //     return IUser.GetMyUser(id);
     // }
 
 
@@ -41,7 +70,5 @@ public class userController : ControllerBase
     // {
     //     return new OkObjectResult("---");
     //     // $"Public Files Accessed by {userName}"
-    // }
-
 }
 

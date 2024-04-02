@@ -6,7 +6,6 @@ using todoList.Interfaces;
 using System;
 using Microsoft.AspNetCore.Authorization;
 using todoList.Services;
-using todoList.Models;
 using System.Security.Claims;
 
 
@@ -16,24 +15,23 @@ namespace todoList.Controllers;
 [Route("todo")]
 public class loginController : ControllerBase
 {
-    IUser IUser;
-    public User User = null;
+    public IUser IUser;
     
-    public loginController(IUser IUser)
+    public loginController(IUser IUser, IHttpContextAccessor httpContextAccessor)
     {
         this.IUser = IUser;
     }
 
     [HttpPost]
     [Route("[action]")]
-    public ActionResult<String> Login(string Password, string name)
+    public ActionResult<String> Login(String Password, String name)
     {
-        if (IUser.findMe(Password)==null)
+        if (IUser.findMe(Password, name)==null)
         {
-            return Unauthorized();
+            return BadRequest();
         }
 
-        User = IUser.findMe(Password);
+        User User= IUser.findMe(Password, name);
 
         var claims=new List<Claim>{new Claim ("id", User.Id.ToString())};
         if(User.IsAdmin)
@@ -46,13 +44,4 @@ public class loginController : ControllerBase
         return new OkObjectResult(TokenServise.WriteToken(token));
     
     }
-
-    [HttpGet]
-    [Route("[action]")]
-    [Authorize(Policy="User")]
-    public ActionResult<List<task>> Get()
-    {
-        return IUser.GetAllTasks();
-    }
-
 }
