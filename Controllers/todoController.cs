@@ -17,9 +17,9 @@ namespace todoList.Controllers;
 public class todoController : ControllerBase
 {
     public IUser IUser;
-    public int UserId{get;set;}
+    public int UserId { get; set; }
 
-    public todoController(IUser usersService,IHttpContextAccessor httpContextAccessor)
+    public todoController(IUser usersService, IHttpContextAccessor httpContextAccessor)
     {
         this.IUser = usersService;
         UserId = int.Parse(httpContextAccessor.HttpContext?.User?.FindFirst("id")?.Value);
@@ -34,7 +34,7 @@ public class todoController : ControllerBase
     }
 
     [HttpGet]
-    [Authorize(Policy="Admin")]
+    [Authorize(Policy = "Admin")]
     [Route("tasksList/{id}")]
     public ActionResult<List<task>> GetMyTasksList(int id)
     {
@@ -42,7 +42,7 @@ public class todoController : ControllerBase
     }
 
     [HttpGet]
-    [Authorize(Policy="Admin")]
+    [Authorize(Policy = "Admin")]
     public ActionResult<List<task>> GetAllTasksList()
     {
         return IUser.GetAllTasks();
@@ -50,6 +50,7 @@ public class todoController : ControllerBase
 
     [HttpPost]
     [Authorize]
+    [Route("[action]")]
     public ActionResult<int> AddNewTask(task newTask)
     {
         return IUser.AddTask(UserId, newTask);
@@ -57,7 +58,7 @@ public class todoController : ControllerBase
 
     [HttpPut]
     [Authorize]
-    [Route("{id}")]
+    [Route("[action]/{id}")]
     public ActionResult<bool> UpdateTask(int id, task newTask)
     {
         return IUser.UpdateTask(UserId, id, newTask);
@@ -65,12 +66,12 @@ public class todoController : ControllerBase
 
     [HttpDelete]
     [Authorize]
-    [Route("{id}")]
-    public ActionResult<bool> UpdateTask(int id)
+    [Route("[action]/{id}")]
+    public ActionResult<bool> DeleteTask(int id)
     {
-        return IUser.UpdateTask(UserId, id);
+        return IUser.DeleteTask(UserId, id);
     }
 
 
-    
+
 }

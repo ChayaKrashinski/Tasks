@@ -17,18 +17,6 @@ public class userServices : IUser
     public List<User> users { get; } = new List<User>();
     private string fileName = "users.json";
 
-    public User findMe(string password, string name)
-    {
-        foreach (var user in users)
-            {
-                if(user.Password.Equals(password))
-                    if(user.UserName.Equals(name))
-                        return user;
-            }
-        return null;
-    }
-
-    // todoListServices tasksListService;
     public userServices(/*ITasksListService tasksListService*/)
     {
         // this.tasksListService = tasksListService;
@@ -44,6 +32,18 @@ public class userServices : IUser
         
         }
     }
+    public User findMe(string password, string name)
+    {
+        foreach (var user in users)
+            {
+                if(user.Password.Equals(password))
+                    if(user.UserName.Equals(name))
+                        return user;
+            }
+        return null;
+    }
+
+    // todoListServices tasksListService;
 
 
     private void saveToFile()

@@ -16,7 +16,7 @@ namespace todoList.Controllers;
 public class loginController : ControllerBase
 {
     public IUser IUser;
-    
+
     public loginController(IUser IUser, IHttpContextAccessor httpContextAccessor)
     {
         this.IUser = IUser;
@@ -26,15 +26,15 @@ public class loginController : ControllerBase
     [Route("[action]")]
     public ActionResult<String> Login(String Password, String name)
     {
-        if (IUser.findMe(Password, name)==null)
+        if (IUser.findMe(Password, name) == null)
         {
             return BadRequest();
         }
 
-        User User= IUser.findMe(Password, name);
+        User User = IUser.findMe(Password, name);
 
-        var claims=new List<Claim>{new Claim ("id", User.Id.ToString())};
-        if(User.IsAdmin)
+        var claims = new List<Claim> { new Claim("id", User.Id.ToString()) };
+        if (User.IsAdmin)
             claims.Add(new Claim("type", "Admin"));
         else
             claims.Add(new Claim("type", "User"));
@@ -42,6 +42,6 @@ public class loginController : ControllerBase
         var token = TokenServise.GetToken(claims);
 
         return new OkObjectResult(TokenServise.WriteToken(token));
-    
+
     }
 }

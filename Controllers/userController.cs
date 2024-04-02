@@ -17,56 +17,48 @@ namespace todoList.Controllers;
 public class userController : ControllerBase
 {
     public IUser IUser;
-    public int UserId{get;set;}
+    public IAdmin IAdmin;
+    public int UserId { get; set; }
 
-    public userController(IUser usersService,IHttpContextAccessor httpContextAccessor)
+    public userController(IUser usersService, IAdmin adminService, IHttpContextAccessor httpContextAccessor)
     {
         this.IUser = usersService;
+        this.IAdmin = adminService;
         UserId = int.Parse(httpContextAccessor.HttpContext?.User?.FindFirst("id")?.Value);
     }
-    
+
 
     [HttpGet]
     [Authorize]
     public ActionResult<User> GetUser()//here need send from body the user
-    {   
+    {
         return IUser.GetMyUser(UserId);
     }
 
 
-    // [Authorize(Policy = "User")]
-    // [HttpGet]
-    // [Route("[action]")]
-    // public ActionResult<String>                                       ()
-    // {
-    //     return new OkObjectResult("---");
-    //     // $"Public Files Accessed by {userName}"
-    // }
+    [HttpGet]
+    [Authorize(Policy = "Admin")]
+    [Route("[action]")]
+    public ActionResult<List<User>> GetAllUsers()
+    {
+        return IAdmin.GetAllUsers();
+    }
 
+    [HttpPost]
+    [Authorize(Policy = "Admin")]
+    [Route("[action]")]
+    public ActionResult<int> AddUser(User newUser)
+    {
+        return IAdmin.AddUser(newUser);
+    }
 
-    // [HttpGet]
-    // [Route("[action]")]
-    // [Authorize(Policy="User")]
-    // public ActionResult<List<task>> Get()
-    // {
-    //     return IUser.GetAllTasks();
-    // }
+    [HttpDelete]
+    [Authorize(Policy = "Admin")]
+    [Route("[action]/{id}")]
+    public ActionResult<bool> DeleteUser(int id)
+    {
+        return IAdmin.DeleteUser(id);
+    }
 
-    // [HttpGet]
-    // [Route("[action]")]
-    // [Authorize(Policy("Admin"))]
-    // public ActionResult<User> getMyProfile()//here need send from body the user
-    // {   
-    //     return IUser.GetMyUser(id);
-    // }
-
-
-    // [Authorize(Policy = "User")]
-    // [HttpGet]
-    // [Route("[action]")]
-    // public ActionResult<String> AccessPublicFiles()
-    // {
-    //     return new OkObjectResult("---");
-    //     // $"Public Files Accessed by {userName}"
 }
 
