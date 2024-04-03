@@ -29,7 +29,7 @@ builder.Services.AddAuthentication(options =>
             cfg.TokenValidationParameters = TokenServise.GetTokenValidationParameters();
         }
     );
-//auth2
+
 builder.Services.AddAuthorization(cfg =>
     {
         cfg.AddPolicy("Admin", policy => policy.RequireClaim("type", "Admin"));
@@ -40,7 +40,7 @@ builder.Services.AddControllers();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "TasksList", Version = "v1" });
-    //auth3
+
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
@@ -48,7 +48,7 @@ builder.Services.AddSwaggerGen(c =>
         Name = "Authorization",
         Type = SecuritySchemeType.ApiKey
     });
-    //auth4
+
     c.AddSecurityRequirement(new OpenApiSecurityRequirement {
                 { new OpenApiSecurityScheme
                         {
