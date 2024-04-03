@@ -30,7 +30,7 @@ public class userController : ControllerBase
 
     [HttpGet]
     [Authorize]
-    public ActionResult<User> GetUser()//here need send from body the user
+    public ActionResult<User> GetUser()
     {
         return IUser.GetMyUser(UserId);
     }

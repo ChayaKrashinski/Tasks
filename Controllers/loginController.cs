@@ -34,7 +34,9 @@ public class loginController : ControllerBase
             return BadRequest();
         }
 
-        var claims = new List<Claim> { new Claim("id", User.Id.ToString()) };
+        User user = IUser.findMe(Password, UserName);
+
+        var claims = new List<Claim> { new Claim("id", user.Id.ToString()) };
         if (User.IsAdmin)
             claims.Add(new Claim("type", "Admin"));
         else
