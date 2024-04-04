@@ -1,17 +1,19 @@
-[{
+[
+    {
         "Password": "1",
         "IsAdmin": true,
         "Id": 1,
         "UserName": "Dan",
-        "TasksList": [{
+        "TasksList": [
+            {
                 "Id": 1,
-                "Name": "finish my project",
+                "Name": "string",
                 "IsDone": false
             },
             {
                 "Id": 2,
                 "Name": "push to git",
-                "IsDone": true
+                "IsDone": false
             },
             {
                 "Id": 3,
@@ -25,10 +27,12 @@
         "IsAdmin": false,
         "Id": 2,
         "UserName": "Gad",
-        "TasksList": [{
-            "Id": 1,
-            "Name": "smile",
-            "IsDone": true
-        }]
+        "TasksList": [
+            {
+                "Id": 1,
+                "Name": "smile",
+                "IsDone": true
+            }
+        ]
     }
 ]

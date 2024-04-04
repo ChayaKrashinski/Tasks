@@ -148,7 +148,6 @@ Z:\B\קרשינסקי מרים\zilbeberg\project\Tasks\obj\Debug\net6.0\todoList
 Z:\B\קרשינסקי מרים\zilbeberg\project\Tasks\obj\Debug\net6.0\ref\todoList.dll
 Z:\B\קרשינסקי מרים\zilbeberg\ToDoTasks\Tasks\bin\Debug\net6.0\appsettings.Development.json
 Z:\B\קרשינסקי מרים\zilbeberg\ToDoTasks\Tasks\bin\Debug\net6.0\appsettings.json
-Z:\B\קרשינסקי מרים\zilbeberg\ToDoTasks\Tasks\bin\Debug\net6.0\Data\tasks.json
 Z:\B\קרשינסקי מרים\zilbeberg\ToDoTasks\Tasks\bin\Debug\net6.0\Data\users.json
 Z:\B\קרשינסקי מרים\zilbeberg\ToDoTasks\Tasks\bin\Debug\net6.0\todoList.staticwebassets.runtime.json
 Z:\B\קרשינסקי מרים\zilbeberg\ToDoTasks\Tasks\bin\Debug\net6.0\todoList.exe
