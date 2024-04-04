@@ -158,7 +158,7 @@ const drawTask = (task) => {
 
 const tasksBtn = document.getElementById('tasksBtn')
 tasksBtn.onclick = () => {
-    tasksBtn.disabled = false
+    tasksBtn.style = "display:none"
     fetch(`${todoURL}/tasksList`, {
         method: 'GET',
         headers: {

@@ -19,7 +19,6 @@ public class userServices : IUser
 
     public userServices(/*ITasksListService tasksListService*/)
     {
-        // this.tasksListService = tasksListService;
         this.fileName = Path.Combine( "Data", "users.json");
         using (var jsonFile = File.OpenText(fileName))
         {
@@ -42,8 +41,6 @@ public class userServices : IUser
             }
         return null;
     }
-
-    // todoListServices tasksListService;
 
 
     private void saveToFile()
@@ -153,33 +150,24 @@ public class userServices : IUser
 
     public bool DeleteTask(int userId, int taskId)
     {
-        try
+        for (int i = 0; i < users.Count; i++)
         {
-            for (int i = 0; i < users.Count; i++)
+            User user = users[i];
+            if(user.Id == userId)
             {
-                User user = users[i];
-                if(user.Id == userId)
+                List<task> tasks = user.TasksList;
+                for (int k = 0; k < tasks.Count; k++)
                 {
-                    List<task> tasks = user.TasksList;
-                    for (int k = 0; k < tasks.Count; k++)
+                    if(tasks[k].Id==taskId)
                     {
-                        if(tasks[k].Id==taskId)
-                        {
-                            tasks.RemoveAt(k);
-                            saveToFile();
-                            return true;
-                        }
+                        tasks.RemoveAt(k);
+                        saveToFile();
+                        return true;
                     }
                 }
             }
-            return false;
-            
         }
-        catch (System.Exception)
-        {
-            
-            throw;
-        }
+        return false;
     }
 
     public User GetMyUser(int id)
