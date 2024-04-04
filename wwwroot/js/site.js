@@ -1,7 +1,26 @@
-const uri = 'user';
+const userURL = 'user';
+const todoURL = 'todo'
 
 const token = localStorage.getItem('token');
 const auth = `Bearer ${token}`
+
+fetch(userURL, {
+    method: 'GET',
+    headers: {
+        'Authorization': auth,
+        'Accept': 'application/json',
+    },
+})
+    .then(response => response.json())
+    .then(data => {
+        // if (data.ok)
+        drawUser(data);
+    })
+    .catch(error => {
+        console.error('error:', error)
+        alert("unAuthorize!!")
+        // location.href = "index.html"
+    });
 
 const drawUser = (user) => {
     const div = document.createElement('div');
@@ -12,8 +31,33 @@ const drawUser = (user) => {
     userDetails.appendChild(div);
 }
 
+const drawTable = () => {
+    const tasks = document.getElementById('tasks');
+    const table = document.createElement('table')
+    table.id = 'tasksList'
+    const tr = document.createElement('tr')
+
+    const th1 = document.createElement('th')
+    th1.innerHTML = 'Edit'
+    const th2 = document.createElement('th')
+    th2.innerHTML = 'Id'
+    const th3 = document.createElement('th')
+    th3.innerHTML = 'Name'
+    const th4 = document.createElement('th')
+    th4.innerHTML = 'Is Done'
+    const th5 = document.createElement('th')
+    th5.innerHTML = 'Delete'
+
+    const chn = [th1, th2, th3, th4, th5]
+    chn.forEach(ch=>tr.appendChild(ch))
+    const tbody = document.createElement('tbody')
+    table.appendChild(tr)
+    table.appendChild(tbody)
+    tasks.appendChild(table)
+}
+
 const drawTask = (task) => {
-    const tasksTable = document.getElementById('tasksTable');
+    const tasksList = document.getElementById('tasksList');
     const tr = document.createElement('tr')
 
     const th1 = document.createElement('th')
@@ -54,7 +98,7 @@ const drawTask = (task) => {
     }
 
     deleteButton.onclick = () => {
-        tasksTable.removeChild(tr)
+        tasksList.removeChild(tr)
     }
 
     th1.appendChild(editButton)
@@ -68,27 +112,29 @@ const drawTask = (task) => {
     tr.appendChild(th4)
     tr.appendChild(th5)
 
-    tasksTable.appendChild(tr)
+    tasksList.appendChild(tr)
 }
 
 
-fetch(uri, {
-    method: 'GET',
-    headers: {
-        'Authorization': auth,
-        'Accept': 'application/json',
-    },
-})
-    .then(response => response.json())
-    .then(data => {
-        // if (data.ok)
-        drawUser(data);
-        drawTask(data.tasksList[0])
-        drawTask(data.tasksList[1])
-        // else console.error('the data is not ok');
+
+function GetMyTasks() {
+    fetch(`${todoURL}/tasksList`, {
+        method: 'GET',
+        headers: {
+            'Authorization': auth,
+            'Accept': 'application/json',
+        },
     })
-    .catch(error => {
-        console.error('error:', error)
-        alert("unAuthorize!!")
-        // location.href = "index.html"
-    });
+        .then(response => response.json())
+        .then(data => {
+            drawTable();
+            data.forEach(task => {
+                drawTask(task)
+            });
+        })
+        .catch(error => {
+            console.error('error:', error)
+            alert("noData!!")
+        });
+}
+
