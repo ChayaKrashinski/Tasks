@@ -61,7 +61,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-
+builder.Services.AddRazorPages();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

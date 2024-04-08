@@ -12,6 +12,8 @@ table {
     font-family: Arial, sans-serif;
     border: 1px solid;
     border-collapse: collapse;
+    color: rgb(2, 122, 116);
+    background-color: rgb(148, 179, 209);
 }
 
 th {
@@ -24,7 +26,8 @@ td {
     padding: 5px;
 }
 
-table{
-    color:rgb(189, 43, 226);
-    background-color: rgb(237, 100, 219);
+form {
+    color: darkolivegreen;
+    font-size: xx-large;
+    text-align: center;
 }
