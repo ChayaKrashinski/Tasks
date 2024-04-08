@@ -18,6 +18,8 @@ public class userController : ControllerBase
 {
     public IUser IUser;
     public IAdmin IAdmin;
+
+
     public int UserId { get; set; }
 
     public userController(IUser usersService, IAdmin adminService, IHttpContextAccessor httpContextAccessor)
@@ -50,6 +52,14 @@ public class userController : ControllerBase
     public ActionResult<int> AddUser([FromBody] User newUser)
     {
         return IAdmin.AddUser(newUser);
+    }
+
+    [HttpPut]
+    [Authorize]
+    [Route("[action]/{id}")]
+    public ActionResult<bool> UpdateUser(int id, [FromBody] User updatedUser)
+    {
+        return IUser.UpdateUser(id, updatedUser);
     }
 
     [HttpDelete]

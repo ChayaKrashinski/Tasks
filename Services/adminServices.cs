@@ -9,23 +9,21 @@ using System;
 using System.Text.Json;
 namespace todoList.Services;
 
-public class adminServices : IAdmin
+public class adminService : IAdmin
 {
     List<User> users { get; } = new List<User>();
     private string fileName = "users.json";
 
-    public adminServices()
+    public adminService()
     {
         this.fileName = Path.Combine("Data", "users.json");
 
         using (var jsonFile = File.OpenText(fileName))
         {
-            // #pragma warning disable CS8601 // Possible null reference assignment.
             users = JsonSerializer.Deserialize<List<User>>(
                 jsonFile.ReadToEnd(),
                 new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
             );
-            // #pragma warning restore CS8601 // Possible null reference assignment.
         }
     }
 
@@ -63,8 +61,8 @@ public class adminServices : IAdmin
 
 public static class AdminUtils
 {
-    public static void AddAdmin(this IServiceCollection services)
+    public static void AddNewAdmin(this IServiceCollection services)
     {
-        services.AddSingleton<IAdmin, adminServices>();
+        services.AddSingleton<IAdmin, adminService>();
     }
 }

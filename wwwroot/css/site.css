@@ -23,3 +23,8 @@ td {
     border: 1px solid;
     padding: 5px;
 }
+
+table{
+    color:rgb(189, 43, 226);
+    background-color: rgb(237, 100, 219);
+}

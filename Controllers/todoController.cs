@@ -17,11 +17,13 @@ namespace todoList.Controllers;
 public class todoController : ControllerBase
 {
     public IUser IUser;
+    public ITask ITask;
     public int UserId { get; set; }
 
-    public todoController(IUser usersService, IHttpContextAccessor httpContextAccessor)
+    public todoController(IUser usersService, ITask tasksService, IHttpContextAccessor httpContextAccessor)
     {
         this.IUser = usersService;
+        this.ITask = tasksService;
         UserId = int.Parse(httpContextAccessor.HttpContext?.User?.FindFirst("id")?.Value);
     }
 
@@ -30,7 +32,7 @@ public class todoController : ControllerBase
     [Route("tasksList")]
     public ActionResult<List<task>> GetMyTasksList()
     {
-        return IUser.GetTasksById(UserId);
+        return ITask.GetTasksById(UserId);
     }
 
     [HttpGet]
@@ -38,22 +40,22 @@ public class todoController : ControllerBase
     [Route("tasksList/{id}")]
     public ActionResult<List<task>> GetUserTasksList(int id)
     {
-        return IUser.GetTasksById(id);
+        return ITask.GetTasksById(id);
     }
 
     [HttpGet]
     [Authorize(Policy = "Admin")]
     public ActionResult<List<task>> GetAllTasksList()
     {
-        return IUser.GetAllTasks();
+        return ITask.GetAllTasks();
     }
 
     [HttpPost]
     [Authorize]
     [Route("[action]")]
-    public ActionResult<int> AddNewTask([FromBody] task newTask)
+    public ActionResult<int> AddTask([FromBody] task newTask)
     {
-        return IUser.AddTask(UserId, newTask);
+        return ITask.AddTask(UserId, newTask);
     }
 
     [HttpPut]
@@ -61,7 +63,7 @@ public class todoController : ControllerBase
     [Route("[action]/{id}")]
     public ActionResult<bool> UpdateTask(int id,[FromBody] task newTask)
     {
-        return IUser.UpdateTask(UserId, id, newTask);
+        return ITask.UpdateTask(UserId, id, newTask);
     }
 
     [HttpDelete]
@@ -69,9 +71,7 @@ public class todoController : ControllerBase
     [Route("[action]/{id}")]
     public ActionResult<bool> DeleteTask(int id)
     {
-        return IUser.DeleteTask(UserId, id);
+        return ITask.DeleteTask(UserId, id);
     }
-
-
 
 }

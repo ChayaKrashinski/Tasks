@@ -65,8 +65,9 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddUser();
-builder.Services.AddAdmin();
+builder.Services.AddNewUser();
+builder.Services.AddNewAdmin();
+builder.Services.AddNewTask();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddEndpointsApiExplorer();
 // builder.Services.AddAdmin();
