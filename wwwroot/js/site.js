@@ -14,18 +14,20 @@ fetch(userURL, {
         headers: {
             'Authorization': auth,
             'Accept': 'application/json',
+            'Content-Type': 'application/json'
         },
     })
     .then(response => response.json())
     .then(data => {
         if (data.id == undefined) throw new Error(`data status is: ${data.status}`);
-        // if (data.ok)
         helloUser(data);
-        localStorage.setItem({ "isAdmin": data.isAdmin })
+        localStorage.setItem("isAdmin", data.isAdmin)
 
     })
     .catch((error) => {
-        // if (error) unAuth()
+        if (error.status == 401) unAuth()
+        else
+            console.error(error);
     })
 
 const adminOption = document.getElementsByClassName('adminOption')
@@ -80,6 +82,7 @@ const drawUser = (user, tableId) => {
 
     if (user.id == -1) {
         editButton.innerHTML = 'add'
+        id = '-'
     }
 
     const addUser = () => {
@@ -399,8 +402,9 @@ tasksBtn.onclick = () => {
     fetch(`${todoURL}/tasksList`, {
             method: 'GET',
             headers: {
-                'Authorization': auth,
                 'Accept': 'application/json',
+                'content-type': 'application/json',
+                'Authorization': auth
             },
         })
         .then(response => response.json())
@@ -410,6 +414,7 @@ tasksBtn.onclick = () => {
                 drawTask(task, 'myTasks')
             });
             drawTask({ id: -1, name: "", isDone: false }, 'myTasks');
+
         })
         .catch(error => {
             console.error('error:', error)
@@ -424,18 +429,18 @@ tasksUsersBtn.onclick = () => {
             headers: {
                 'Authorization': auth,
                 'Accept': 'application/json',
+                'Content-Type': 'application/json'
             },
         })
-        .then(response => {
-            // if (response.status == 401) unAuth();
-            response.json()
-        })
+        .then(response => response.json())
         .then(data => {
-            drawTasksTable('allTasks');
-            data.forEach(task => {
-                drawTask(task, 'allTasks')
-            });
-            drawTask({ id: -1, name: "", isDone: false }, 'allTasks')
+            if (data) {
+                drawTasksTable('allTasks');
+                data.forEach(task => {
+                    drawTask(task, 'allTasks')
+                });
+                drawTask({ id: -1, name: "", isDone: false }, 'allTasks')
+            }
         })
         .catch(error => {
             console.error('error:', error)
@@ -446,6 +451,32 @@ tasksUsersBtn.onclick = () => {
 
 //users
 /////////////////////////////////////////////////////
+
+const usersBtn = document.getElementById('usersBtn')
+usersBtn.onclick = () => {
+
+    usersBtn.style = "display:none"
+    fetch(`${userURL}/GetAllUsers`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'content-type': 'application/json',
+                'Authorization': auth
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            drawUsersTable('usersList');
+            data.forEach(user => {
+                drawUser(user, 'usersList')
+            });
+            drawUser({ password: "-1", isAdmin: false, id: -1, userName: "", tasksList: [] }, 'usersList');
+        })
+        .catch(error => {});
+
+}
+
+
 const userBtn = document.getElementById('userBtn')
 userBtn.onclick = () => {
     userBtn.style = "display:none"
@@ -464,30 +495,5 @@ userBtn.onclick = () => {
         .catch(error => {
             console.error(error);
         });
-
-}
-
-const usersBtn = document.getElementById('usersBtn')
-usersBtn.onclick = () => {
-    usersBtn.style = "display:none"
-    fetch(`${userURL}/GetAllUsers`, {
-            method: 'GET',
-            headers: {
-                'Authorization': auth,
-                'Accept': 'application/json',
-            },
-        })
-        .then(response => {
-            if (response.status == 401) unAuth();
-            response.json()
-        })
-        .then(data => {
-            drawUsersTable('usersList');
-            data.forEach(user => {
-                drawTask(user, 'usersList')
-            });
-            drawUser({ password: "-1", isAdmin: false, id: -1, userName: "", tasksList: [] }, 'usersList')
-        })
-        .catch(error => {});
 
 }

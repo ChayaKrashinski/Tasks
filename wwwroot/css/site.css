@@ -1,8 +1,10 @@
 input[type='submit'],
-button,
-[aria-label] {
-    cursor: pointer;
-}
+
+/* options {
+    color: coral;
+    background-color: antiquewhite;
+    font-size: xx-large;
+} */
 
 #editForm {
     display: none;

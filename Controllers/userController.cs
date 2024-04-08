@@ -39,8 +39,8 @@ public class userController : ControllerBase
 
 
     [HttpGet]
-    [Authorize(Policy = "Admin")]
     [Route("[action]")]
+    [Authorize(Policy = "Admin")]
     public ActionResult<List<User>> GetAllUsers()
     {
         return IAdmin.GetAllUsers();
