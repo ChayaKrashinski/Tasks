@@ -2057,3 +2057,16 @@
 09/04/2024 11:49:25 --- /user.GET took 1ms. User: 1
 09/04/2024 12:25:21 --- /site.html.GET took 25ms. User: unknown
 09/04/2024 12:25:21 --- /css/site.css.GET took 3ms. User: unknown
+09/04/2024 12:31:59 --- /site.html.GET took 25ms. User: unknown
+09/04/2024 12:31:59 --- /css/site.css.GET took 2ms. User: unknown
+09/04/2024 12:31:59 --- /js/site.js.GET took 9ms. User: unknown
+09/04/2024 12:32:00 --- /user.GET took 305ms. User: 1
+09/04/2024 12:32:09 --- /todo/tasksList.GET took 6ms. User: 1
+09/04/2024 12:32:10 --- /todo/allTasksList.GET took 4ms. User: 1
+09/04/2024 12:32:11 --- /todo/GetTask/.GET took 2ms. User: 1
+09/04/2024 12:32:11 --- /user/GetAllUsers.GET took 0ms. User: 1
+09/04/2024 12:32:12 --- /user.GET took 0ms. User: 1
+09/04/2024 12:32:14 --- /todo/GetTask/.GET took 1ms. User: 1
+09/04/2024 12:32:16 --- /todo/GetTask/1.GET took 16ms. User: 1
+09/04/2024 12:32:36 --- /todo/DeleteTask/6.DELETE took 10ms. User: 1
+09/04/2024 12:32:40 --- /todo/DeleteTask/7.DELETE took 6ms. User: 1

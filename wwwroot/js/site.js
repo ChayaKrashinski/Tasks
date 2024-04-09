@@ -175,6 +175,7 @@ const drawUser = (user, tableId) => {
             })
             .catch(error => {
                 console.error('error:', error)
+                if (error.status == 401) unAuth()
                 alert("only admin can remove user, you dont admin!!")
             });
 
@@ -312,8 +313,7 @@ const drawTask = (task, tableId) => {
             })
             .catch(error => {
                 console.error('error:', error)
-                alert("noData!!")
-                    // location.href = "login.js"
+                if (error.status == 401) unAuth()
             });
     }
 
@@ -347,6 +347,7 @@ const drawTask = (task, tableId) => {
 
             })
             .catch(error => {
+                if (error.status == 401) unAuth()
                 console.error('error:', error)
             });
     }
@@ -381,6 +382,7 @@ const drawTask = (task, tableId) => {
                 alert('the task deleted')
             })
             .catch(error => {
+                if (error.status == 401) unAuth()
                 console.error('error:', error)
             });
 
@@ -424,6 +426,7 @@ tasksBtn.onclick = () => {
 
         })
         .catch(error => {
+            if (error.status == 401) unAuth()
             console.error('error:', error)
         });
 }
@@ -450,6 +453,7 @@ tasksUsersBtn.onclick = () => {
             }
         })
         .catch(error => {
+            if (error.status == 401) unAuth()
             console.error('error:', error)
         });
 }
@@ -479,7 +483,7 @@ usersBtn.onclick = () => {
             });
             drawUser({ password: "-1", isAdmin: false, id: -1, userName: "", tasksList: [] }, 'usersList');
         })
-        .catch(error => {});
+        .catch(error => { if (error.status == 401) unAuth() });
 
 }
 
@@ -501,6 +505,7 @@ userBtn.onclick = () => {
             drawUser(data, 'MyDetails')
         })
         .catch(error => {
+            if (error.status == 401) unAuth()
             console.error(error);
         });
 
@@ -527,6 +532,7 @@ tBtn.onclick = () => {
                     drawUser(data, 'TaskById')
                 })
                 .catch(error => {
+                    if (error.status == 401) unAuth()
                     console.error(error);
                 });
         }
@@ -555,6 +561,7 @@ uBtn.onclick = () => {
                     drawUser(data, 'oneTask')
                 })
                 .catch(error => {
+                    if (error.status == 401) unAuth()
                     console.error(error);
                 });
         }
