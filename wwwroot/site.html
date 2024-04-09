@@ -9,25 +9,42 @@
 
 <body>
     <h1>To Do Tasks</h1>
-    <div id="userDetails"></div>
+    <div id="userDetails"></div><br><br>
+
+    <!-- <button id="postman">postman</button> -->
 
     <div id="tasks">
-        <button id="tasksBtn">your tasks</button><br>
-        <div id="userTasks"></div>
-        <button id="tasksUsersBtn" class="adminOptions">users tasks</button><br>
-        <div id="usersTasks"></div>
-        <button id="tBtn">task by id</button><br>
-        <div id="usersTask"></div>
+
+        <div id="userTasks">
+            <button class="options" id="tasksBtn">your tasks</button><br>
+        </div>
+
+        <div id="usersTasks">
+            <button class="options" id="tasksUsersBtn">users tasks</button><br>
+        </div>
+
+        <div id="task">
+            <input type="number" id="taskId" placeholder="id task" style="display: none;">
+            <button class="options" id="tBtn">task by id</button><br>
+        </div>
     </div>
 
     <div id="users">
-        <button id="usersBtn" class="adminOptions">users details</button><br>
-        <div id="userDetails"></div>
-        <button id="userBtn">your details</button><br>
-        <div id="usersDetails"></div>
-        <button id="uBtn" class="adminOptions">user by id</button><br>
-        <div id="uDetails"></div>
+
+        <div id="userDetails">
+            <button class="options" id="usersBtn">users details</button><br>
+        </div>
+
+        <div id="usersDetails">
+            <button class="options" id="userBtn">your details</button><br>
+        </div>
+
+        <div id="user">
+            <input type="number" id="userId" placeholder="id user" style="display: none;">
+            <button class="options" id="uBtn">user by id</button><br>
+        </div>
     </div>
+
 
     <script src="js/site.js" asp-append-version="true"></script>
 

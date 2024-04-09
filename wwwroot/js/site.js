@@ -215,6 +215,9 @@ const drawUsersTable = (id) => {
     const chn = [th1, th2, th3, th4, th5]
     chn.forEach(ch => tr.appendChild(ch))
     const tbody = document.createElement('tbody')
+    const caption = document.createElement('caption');
+    caption.innerHTML = id
+    table.appendChild(caption)
     table.appendChild(tr)
     table.appendChild(tbody)
     users.appendChild(table)
@@ -244,6 +247,9 @@ const drawTasksTable = (id) => {
     const chn = [th1, th2, th3, th4, th5]
     chn.forEach(ch => tr.appendChild(ch))
     const tbody = document.createElement('tbody')
+    const caption = document.createElement('caption');
+    caption.innerHTML = id
+    table.appendChild(caption)
     table.appendChild(tr)
     table.appendChild(tbody)
     tasks.appendChild(table)
@@ -391,6 +397,7 @@ const drawTask = (task, tableId) => {
     tr.appendChild(isDone)
     tr.appendChild(Delete)
 
+
     tasksList.appendChild(tr)
 }
 
@@ -480,6 +487,7 @@ usersBtn.onclick = () => {
 const userBtn = document.getElementById('userBtn')
 userBtn.onclick = () => {
     userBtn.style = "display:none"
+
     fetch(userURL, {
             method: 'GET',
             headers: {
@@ -489,11 +497,66 @@ userBtn.onclick = () => {
         })
         .then(response => response.json())
         .then(data => {
-            drawUsersTable('userTable');
-            drawUser(data, 'userTable')
+            drawUsersTable('MyDetails');
+            drawUser(data, 'MyDetails')
         })
         .catch(error => {
             console.error(error);
         });
 
+}
+
+const tBtn = document.getElementById('tBtn')
+const taskId = document.getElementById('taskId')
+tBtn.onclick = () => {
+    tBtn.disabled = true;
+    taskId.style.display = ""
+    taskId.onmouseout = () => {
+        {
+            if (taskId.value != null)
+                fetch(`${todoURL}/GetTask/${taskId.value}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': auth,
+                        'Accept': 'application/json',
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    drawTasksTable('TaskById');
+                    drawUser(data, 'TaskById')
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+    }
+
+
+}
+
+const uBtn = document.getElementById('uBtn')
+const userId = document.getElementById('userId')
+uBtn.onclick = () => {
+    uBtn.disabled = true;
+    userId.style.display = ""
+    userId.onmouseout = () => {
+        if (userId.value != null) {
+            fetch(`${todoURL}/GetTask/${userId.value}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': auth,
+                        'Accept': 'application/json',
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    drawUsersTable('oneUser');
+                    drawUser(data, 'oneTask')
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+    }
 }

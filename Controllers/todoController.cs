@@ -43,13 +43,21 @@ public class todoController : ControllerBase
         return ITask.GetTasksById(id);
     }
 
-    [Authorize]
+    // [Authorize]
     [HttpGet]
-    // [Authorize(Policy = "Admin")]
+    [Authorize(Policy = "Admin")]
     [Route("allTasksList")]
     public ActionResult<List<task>> GetAllTasksList()
     {
         return ITask.GetAllTasks();
+    }
+
+    [HttpGet]
+    [Authorize]
+    [Route("[action]/{id}")]
+    public ActionResult<task> GetTask(int taskId)
+    {
+        return ITask.GetTaskById(UserId, taskId);
     }
 
     [HttpPost]

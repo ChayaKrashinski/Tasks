@@ -1,10 +1,9 @@
 input[type='submit'],
-
-/* options {
+.options {
     color: coral;
     background-color: antiquewhite;
     font-size: xx-large;
-} */
+}
 
 #editForm {
     display: none;
@@ -32,4 +31,16 @@ form {
     color: darkolivegreen;
     font-size: xx-large;
     text-align: center;
+}
+
+div {
+    margin: 5px;
+}
+
+#postman {
+    width: 100px;
+    height: 30px;
+    color: #f8f8f8;
+    background-color: brown;
+    margin: 10px;
 }

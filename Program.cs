@@ -70,29 +70,8 @@ builder.Services.AddNewAdmin();
 builder.Services.AddNewTask();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddEndpointsApiExplorer();
-// builder.Services.AddAdmin();
-// builder.Services.AddSwaggerGen(c =>
-// {
-//     c.SwaggerDoc("v1", new OpenApiInfo { Title = "ToDoList", Version = "v1" });
-//     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-//     {
-//         In = ParameterLocation.Header,
-//         Description = "Please enter JWT",
-//         Name = "Authorization",
-//         Type = SecuritySchemeType.ApiKey
-//     });
-//     c.AddSecurityRequirement(new OpenApiSecurityRequirement {
-//     { new OpenApiSecurityScheme
-//         {
-//             Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer"}
-//         },
-//         new string[] {}
-//     }
-//     });
-// }
-// );
-// builder.Logging.ClearProviders();
-// builder.Logging.AddConsole();
+builder.Logging.ClearProviders();
+
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
