@@ -1,27 +1,17 @@
+# Task Manager Web API
 
-# Tasks List
+This is a .NET Core Web API project for managing tasks lists of users. It includes authentication and authorization for managers, users, and CRUD operations.
 
-manage your tasks List
+## Getting Started
 
+### Prerequisites
 
-## framework
+- [.NET Core SDK](https://dotnet.microsoft.com/download)
+- [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/)
 
-dotnet core
+### Installation
 
-## languages
+1. Clone this repository:
 
-c#
-
-html
-
-js
-
-css
-
-## Authors
-
-this webapi developing by chaya krashinski
-
-for contact: a@0527651529@gmail.com
-
-
+   ```bash
+   git clone https://github.com/your-username/task-manager-api.git
