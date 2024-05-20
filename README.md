@@ -1,6 +1,7 @@
-Got it! Here's the HTML code converted to Markdown from level 2 ('Navigate to the project directory:') until the end of the README:
+# tasksList Web API
 
-```markdown
+This is a .NET Core Web API project for managing tasks lists of users. It includes authentication and authorization for managers, users, and CRUD operations.
+
 ## Getting Started
 
 ### Prerequisites
@@ -13,13 +14,13 @@ Got it! Here's the HTML code converted to Markdown from level 2 ('Navigate to th
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/your-username/task-manager-api.git
+git clone https://github.com/ChayaKrashinski/tasks.git
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-cd task-manager-api
+cd tasks
 ```
 
 3. Restore dependencies:
@@ -47,7 +48,7 @@ Run the application:
 dotnet run
 ```
 
-By default, the API will be accessible at `https://localhost:5001`.
+By default, the API will be accessible at `https://localhost:10000`.
 
 ## Authentication & Authorization
 
@@ -55,14 +56,6 @@ By default, the API will be accessible at `https://localhost:5001`.
 - Managers can access all endpoints.
 - Users can only access specific endpoints related to task management.
 - Unauthorized users will receive a 401 Unauthorized response.
-
-## Endpoints
-
-- **GET /api/tasks**: Get all tasks.
-- **GET /api/tasks/{id}**: Get a specific task by ID.
-- **POST /api/tasks**: Create a new task.
-- **PUT /api/tasks/{id}**: Update an existing task.
-- **DELETE /api/tasks/{id}**: Delete a task by ID.
 
 ## Technologies Used
 
@@ -74,10 +67,3 @@ By default, the API will be accessible at `https://localhost:5001`.
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-This Markdown code should now be ready to be copied into your README.md file. Let me know if you need further assistance!
